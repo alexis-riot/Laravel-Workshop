@@ -1,0 +1,6 @@
+if [[ $1 == "workspace" || $1 == "mysql" ]]; then
+	docker-compose exec $1 bash
+else
+	echo "./start <Parameter>"
+	echo "[PARAMETER]: workspace, mysql"
+fi
