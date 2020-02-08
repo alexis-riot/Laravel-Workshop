@@ -1,5 +1,14 @@
 if [[ $1 == "workspace" || $1 == "mysql" ]]; then
-	docker-compose exec $1 bash
+	cd laradock/
+	if [ $1 == "workspace" ]
+	then
+		docker-compose exec $1 bash
+	elif [ $1 == "mysql" ]
+	then
+		echo "Default MySQL credentials: root@root"
+		docker-compose exec $1 bash -c "mysql -uroot -p"
+	fi
+	cd /var
 else
 	echo "./start <Parameter>"
 	echo "[PARAMETER]: workspace, mysql"
