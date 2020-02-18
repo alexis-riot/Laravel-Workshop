@@ -6,7 +6,7 @@ if [[ $1 == "workspace" || $1 == "mysql" ]]; then
 	elif [ $1 == "mysql" ]
 	then
 		echo "Default MySQL credentials: root@root"
-		docker-compose exec $1 bash -c "mysql -uroot -p"
+		docker-compose exec $1 bash -c "mysql -uroot -proot"
 	fi
 	cd /var
 else
