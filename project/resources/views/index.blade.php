@@ -12,7 +12,7 @@
                             <h3 class="mb-0">{{ $post->title }}</h3>
                             <div class="mb-1 text-muted">{{ $post->created_at->diffForHumans() }}</div>
                             <p class="card-text mb-auto">{!! Str::limit($post->content, 200, ' ...') !!}</p>
-                            <a href="#" class="stretched-link">Voir le post</a>
+                            <a href="{{ route('posts.show', $post) }}" class="stretched-link">Voir le post</a>
                         </div>
                         <div class="d-lg-block">
                             <img class="bd-placeholder-img" width="200" height="250" src="https://www.webnode.com/blog/wp-content/uploads/2016/10/Blog-intro.jpg">

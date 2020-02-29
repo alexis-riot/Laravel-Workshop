@@ -15,3 +15,5 @@ Auth::routes();
 
 Route::get('/', 'IndexController@index')->name('index');
 Route::get('/user', 'UserController@index')->name('user');
+Route::resource('posts', 'PostController')->except('index');
+
