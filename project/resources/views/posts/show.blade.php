@@ -7,7 +7,7 @@
                 <div class="row border-bottom mb-4">
                     <div class="col-md-8">
                         <h3 class="pb-4 font-italic">
-                            Article #[ID]
+                            Article #{{ $post->id }}
                         </h3>
                     </div>
                     <!-- Only for the creator of the post -->
@@ -23,9 +23,9 @@
                 </div>
 
                 <div class="blog-post">
-                    <h2 class="blog-post-title">[Article title]</h2>
-                    <p class="blog-post-meta">[Date], par <a href="#">[Author]</a></p>
-                    <p>Content</p>
+                    <h2 class="blog-post-title">{{ $post->title }}</h2>
+                    <p class="blog-post-meta">{{ $post->created_at }}, par <a href="#">{{ $post->user->name }}</a></p>
+                    <p>{{ $post->content }}</p>
                 </div>
             </div>
         </div>
