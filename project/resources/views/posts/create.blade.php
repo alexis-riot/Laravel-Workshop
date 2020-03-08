@@ -7,8 +7,20 @@
             <p class="lead">Remplir ce formulaire pour voir son article publié.</p>
         </div>
 
-        <form>
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <b>Erreurs:</b>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        <form action="{{ route('posts.store') }}" method="POST">
             @csrf
+            @method('POST')
             <div class="row">
                 <div class="col-md-12">
                     <div class="mb-3">
