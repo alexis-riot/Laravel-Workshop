@@ -12,7 +12,9 @@
                     </div>
                     <!-- Only for the creator of the post -->
                     <div class="col-md-4 text-right">
-                        <form>
+                        <form action="{{ route('posts.destroy', $post) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
                             <a class="btn btn-outline-primary" href="{{ route('posts.edit', $post) }}">Modifier</a>
                             <button type="submit" class="btn btn-outline-danger">Supprimer</button>
                         </form>
