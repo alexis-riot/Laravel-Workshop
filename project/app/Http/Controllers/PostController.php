@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
 class PostController extends Controller
 {
@@ -82,7 +83,20 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $request->validate([
+            'title' => [
+                'required',
+                'min:5',
+                Rule::unique('posts')->ignore($post->id),
+            ],
+            'content' => 'required|min:15',
+        ]);
+
+        $post = $post->update([
+            'title' => $request->input('title'),
+            'content' => $request->input('content'),
+        ]);
+        return (redirect()->route('posts.show', $post));
     }
 
     /**
